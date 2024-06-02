@@ -5,16 +5,19 @@ import ViewIcon from "@/public/assets/icons/viewIcon";
 import CustomButton from '@/components/button/button';
 import Image from 'next/image';
 import controller from "@/public/assets/controller.png";
+import coat from "@/public/assets/coat.png"
 import Link from "next/link";
 import ReactStars from 'react-stars';
 
 interface CardProps {
   product: {
+  
     id: number;
     name: string;
     discountPercentage: number;
     discountedPrice: number;
     originalPrice: number;
+    image: string;
     rating: number;
   };
 }
@@ -32,7 +35,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
         <ViewIcon className="bg-white rounded-2xl" />
       </div>
       <div className="flex flex-col items-center px-6 py-2">
-        <Image src={controller} alt="Card Image" width={200} height={200} />
+        <Image src={product.image} alt="Card Image" width={200} height={200} />
       </div>
       <div className="flex justify-center mt-3"></div>
 
@@ -55,15 +58,19 @@ const ProductList: React.FC = () => {
   const products = [
     {
       id: 1,
+      
       name: "HAVIT HV-G92 Gamepad",
+      image:coat,
       discountPercentage: 40,
       discountedPrice: 120,
       originalPrice: 450,
       rating: 4.5,
+     
     },
     {
       id: 2,
       name: "AK-900 Wired Keyboard",
+      image:controller,
       discountPercentage: 30,
       discountedPrice: 70,
       originalPrice: 100,
@@ -72,6 +79,7 @@ const ProductList: React.FC = () => {
     {
       id: 3,
       name: "HAVIT HV-G92 Gamepad",
+      image:coat,
       discountPercentage: 40,
       discountedPrice: 120,
       originalPrice: 450,
@@ -80,6 +88,7 @@ const ProductList: React.FC = () => {
     {
       id: 4,
       name: "HAVIT HV-G92 Gamepad",
+      image:controller,
       discountPercentage: 40,
       discountedPrice: 120,
       originalPrice: 450,
@@ -105,3 +114,42 @@ const ProductList: React.FC = () => {
 };
 
 export default ProductList;
+
+/* 
+
+import React from 'react';
+import ComputerIcon from '@/public/assets/icons/computerIcon';
+import MobileIcon from '@/public/assets/icons/mobileIcon';
+import SmartIcon from '@/public/assets/icons/smartwatchIcon';
+
+type Category = {
+  icon: React.FC;
+  name: string;
+};
+
+const categories: Category[] = [
+  { icon: ComputerIcon, name: 'Computer' },
+  { icon: MobileIcon, name: 'Mobile' },
+  { icon: SmartIcon, name: 'Smart' },
+];
+
+const CategoryCard: React.FC<{ icon: React.FC; name: string }> = ({ icon: Icon, name }) => (
+  <div className="text-black overflow-hidden w-40 h-40 pt-3 border rounded-md border-gray-300 relative flex flex-col justify-center items-center">
+    <div className="flex justify-center items-center">
+      <Icon />
+    </div>
+    <span className="mt-2 text-md font-medium">{name}</span>
+  </div>
+);
+
+const CategoryList: React.FC = () => (
+  <div className="flex space-x-4">
+    {categories.map((category, index) => (
+      <CategoryCard key={index} icon={category.icon} name={category.name} />
+    ))}
+  </div>
+);
+
+export default CategoryList;
+
+*/

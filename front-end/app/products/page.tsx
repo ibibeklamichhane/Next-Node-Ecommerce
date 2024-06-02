@@ -3,7 +3,9 @@ import React from "react";
 import Card from "@/components/card/card";
 import Iphone from "@/public/assets/Iphone.svg";
 import CardOutline from "@/components/card/cardOutline";
-import CategoryCard from "@/components/card/CategoryCard";
+import CategoryList from "./categories/page";
+import BestSelling from "./bestsellings/page";
+
 
 const ProductPage = () => {
   const cardData = {
@@ -15,14 +17,22 @@ const ProductPage = () => {
   return (
     <>
 
-    <CardOutline/>
+    <CardOutline 
+     
+     title ="Todays"
+     subtitle="Flash Sales"
+    
+    />
   
 
       <Card />
 
-      <hr className="border-t-2 border-gray-300 my-4 mt-4" />
+      <hr className="border-t-2 border-gray-300 my-4 mt-4 mb-12" />
 
-      <CategoryCard/>
+      <CategoryList/>
+      <BestSelling/>
+
+    
       </>
    
   );

@@ -8,8 +8,8 @@ import ProductPage from "./products/page";
 export default function Home() {
   return (
     <>
-    <div className="px-24">
-    <Topbar/>
+    
+   
 
     <div className="flex" >
       <Sidebar/>
@@ -24,7 +24,7 @@ export default function Home() {
    
     
   
-    </div>
+    
 
     
     </>

@@ -3,6 +3,7 @@ import CartIcon from "@/public/assets/icons/cart";
 import FavouriteIcon from "@/public/assets/icons/favourites";
 import UserIcon from "@/public/assets/icons/userIcon";
 import SearchIcon from "@/public/assets/icons/search";
+import Link from "next/link";
 
 function Topbar() {
   return (
@@ -12,7 +13,7 @@ function Topbar() {
 
       {/* Navigation Links */}
       <div className="flex space-x-12 pr-10 font-semibold text-lg">
-  <a href="#" className="hover:underline ">
+  <a href="/" className="hover:underline ">
     Home
   </a>
   <a href="#" className="hover:underline ">
@@ -21,7 +22,7 @@ function Topbar() {
   <a href="#" className="hover:underline ">
     About
   </a>
-  <a href="#" className="hover:underline ">
+  <a href="/signup" className="hover:underline ">
     Sign Up
   </a>
 </div>
@@ -42,9 +43,15 @@ function Topbar() {
 
           </div>
         </div>
+        <Link href="/wishlist">
         <FavouriteIcon />
+      </Link>
+      <Link href="/cart">
         <CartIcon />
+      </Link>
+      <Link href="/user">
         <UserIcon />
+      </Link>
       </div>
     </nav>
   );

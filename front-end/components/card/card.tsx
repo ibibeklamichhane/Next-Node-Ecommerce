@@ -16,7 +16,7 @@ interface CardProps {
     name: string;
     discountPercentage: number;
     discountedPrice: number;
-    originalPrice: number;
+    Price: number;
     image: string;
     rating: number;
   };
@@ -44,76 +44,24 @@ const Card: React.FC<CardProps> = ({ product }) => {
           <h1 className="text-xl font-semibold text-black">{product.name}</h1>
           <div className="flex items-center">
             <p className="text-[#DB4444] mr-4">${product.discountedPrice}</p>
-            <span className="text-[#7D8184] font-medium">${product.originalPrice}</span>
+            <span className="text-[#7D8184] font-medium">${product.Price}</span>
           </div>
           <ReactStars count={5} size={24} color2={'#ffd700'} value={product.rating} edit={false} />
         </div>
     </div>
-=
         </>
   );
 };
 
-const ProductList: React.FC = () => {
-  const products = [
-    {
-      id: 1,
-      
-      name: "HAVIT HV-G92 Gamepad",
-      image:coat,
-      discountPercentage: 40,
-      discountedPrice: 120,
-      originalPrice: 450,
-      rating: 4.5,
-     
-    },
-    {
-      id: 2,
-      name: "AK-900 Wired Keyboard",
-      image:controller,
-      discountPercentage: 30,
-      discountedPrice: 70,
-      originalPrice: 100,
-      rating: 4.2,
-    },
-    {
-      id: 3,
-      name: "HAVIT HV-G92 Gamepad",
-      image:coat,
-      discountPercentage: 40,
-      discountedPrice: 120,
-      originalPrice: 450,
-      rating: 4.5,
-    },
-    {
-      id: 4,
-      name: "HAVIT HV-G92 Gamepad",
-      image:controller,
-      discountPercentage: 40,
-      discountedPrice: 120,
-      originalPrice: 450,
-      rating: 4.5,
-    },
+
  
-    // Add more product objects here
-  ];
-
-  return (
-    <>
-    <div className="flex gap-x-10">
-      {products.map((product) => (
-        <Card key={product.id} product={product} />
-      ))}
-    </div>
-    <div className="flex justify-center items-center h-full mt-2">
   <CustomButton text="view all products" className="text-white px-6 py-2 bg-red-700 w-fit" />
-</div>
 
-    </>
-  );
-};
 
-export default ProductList;
+  
+ 
+
+export default Card;
 
 /* 
 

@@ -49,7 +49,7 @@ function Topbar() {
       <Link href="/cart">
         <CartIcon />
       </Link>
-      <Link href="/user">
+      <Link href="/profile">
         <UserIcon />
       </Link>
       </div>

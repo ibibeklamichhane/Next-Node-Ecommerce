@@ -1,4 +1,5 @@
-// pages/index.tsx
+// pages/index.tsx 
+
 import React from "react";
 import Card from "@/components/card/card";
 import Iphone from "@/public/assets/Iphone.svg";
@@ -25,7 +26,7 @@ const ProductPage = () => {
     />
   
 
-      <Card />
+    
 
       <hr className="border-t-2 border-gray-300 my-4 mt-4 mb-12" />
 

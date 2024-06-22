@@ -2,12 +2,17 @@ import Image from "next/image";
 import Topbar from "@/components/Navbar/Topbar"
 import Sidebar from "@/components/Navbar/Sidebar"
 import SwiperSlider from "@/components/Navbar/hero";
-import ProductPage from "./products/page";
+import { SWRConfig } from 'swr';
+
+import GetProduct from "./getproducts/page";
+
 
 
 export default function Home() {
   return (
     <>
+
+
     
    
 
@@ -20,13 +25,13 @@ export default function Home() {
 
     </div>
     
-    <ProductPage/>
+    <GetProduct/>
    
     
   
     
 
-    
+ 
     </>
 
    

@@ -22,7 +22,7 @@ const CustomBreadCrumb = ({
       {link ? (
         <Link
           href={link}
-          className="text-xl font-medium text-gray-50 cursor-pointer"
+          className="text-xl font-medium text-black cursor-pointer"
         >
           {title}
         </Link>

@@ -1,17 +1,20 @@
-"use client";
+" use client ";
+
 import React from "react";
 import FavouriteIcon from "@/public/assets/icons/favourites";
 import ViewIcon from "@/public/assets/icons/viewIcon";
 import CustomButton from '@/components/button/button';
 import Image from 'next/image';
-import controller from "@/public/assets/controller.png";
-import coat from "@/public/assets/coat.png"
+//import controller from "@/public/assets/controller.png";
+//import coat from "@/public/assets/coat.png"
 import Link from "next/link";
 import ReactStars from 'react-stars';
+import { useDispatch } from 'react-redux';
+import {addItem} from "@/features/cart/cartslice"
+import { AppDispatch } from '@/features/store';
 
 interface CardProps {
   product: {
-  
     id: number;
     name: string;
     discountPercentage: number;
@@ -23,9 +26,25 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ product }) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleAddToCart = () => {
+    console.log('Adding to cart:', product);
+    dispatch(addItem({
+      id:product.id,
+      name: product.name,
+      price: product.discountedPrice,
+      quantity:1
+
+      
+    }));
+    console.log('Action dispatched');
+  }; 
+
+
   return (
     <>
-    <div className="flex flex-col"> 
+    <div className="flex flex-col "> 
     <div className="overflow-hidden w-fit h-72 pt-3 border-r rounded-xl bg-gray-200 border-gray-300 relative">
       <div className="pl-2">
         <CustomButton text={`-${product.discountPercentage}%`} className="text-white px-6 py-2 bg-red-700 w-fit" />
@@ -47,6 +66,12 @@ const Card: React.FC<CardProps> = ({ product }) => {
             <span className="text-[#7D8184] font-medium">${product.Price}</span>
           </div>
           <ReactStars count={5} size={24} color2={'#ffd700'} value={product.rating} edit={false} />
+          <CustomButton 
+            text="Add to Cart" 
+            className="text-white px-6 py-2 bg-red-700 w-fit mt-2"
+            onClick={handleAddToCart}
+          
+          />
         </div>
     </div>
         </>

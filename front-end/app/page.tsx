@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Topbar from "@/components/Navbar/Topbar"
 import Sidebar from "@/components/Navbar/Sidebar"
 import SwiperSlider from "@/components/Navbar/hero";
-import { SWRConfig } from 'swr';
+//import { SWRConfig } from 'swr';
 
+
+import { Provider } from 'react-redux';
+import {store} from "@/features/store";
 import GetProduct from "./getproducts/page";
 
 
@@ -11,26 +16,25 @@ import GetProduct from "./getproducts/page";
 export default function Home() {
   return (
     <>
-
+  
 
     
    
 
-    <div className="flex" >
+    <div className="flex flex-1" >
       <Sidebar/>
    
-    <SwiperSlider/>
+      <SwiperSlider/>
      
   
 
     </div>
-    
+   
     <GetProduct/>
    
     
   
     
-
  
     </>
 

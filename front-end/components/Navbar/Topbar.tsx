@@ -6,6 +6,8 @@ import SearchIcon from "@/public/assets/icons/search";
 import Link from "next/link";
 
 function Topbar() {
+
+
   return (
     <nav className="flex  text-black items-center justify-between  py-3 bg-white border-b border-gray-200 sticky">
       {/* Brand */}
@@ -16,12 +18,12 @@ function Topbar() {
   <a href="/" className="hover:underline ">
     Home
   </a>
-  <a href="#" className="hover:underline ">
+  <a href="contact" className="hover:underline ">
     Contact
   </a>
-  <a href="#" className="hover:underline ">
+  <Link  href="/about" className="hover:underline ">
     About
-  </a>
+  </Link>
   <a href="/signup" className="hover:underline ">
     Sign Up
   </a>

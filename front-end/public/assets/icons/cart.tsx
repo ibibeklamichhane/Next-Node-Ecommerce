@@ -1,13 +1,19 @@
+'use client'
+
 import React from 'react';
 
-//give the cart outline to red 
-
-
+import { useAppSelector } from '@/features/cart/hooks'; // Adjust the path if necessary
 
 
 
 const CartIcon: React.FC = () => {
+
+  const cartItems = useAppSelector(state => state.cart.items);
+  const cartCount = cartItems.reduce((acc, item) => acc + (item.quantity || 1), 0);
+
   return (
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M11 27C11.5523 27 12 26.5523 12 26C12 25.4477 11.5523 25 11 25C10.4477 25 10 25.4477 10 26C10 26.5523 10.4477 27 11 27Z"
@@ -38,6 +44,23 @@ const CartIcon: React.FC = () => {
         strokeLinejoin="round"
       />
     </svg>
+          {cartCount > 0 && (
+            <span
+              style={{
+                position: 'absolute',
+                top: '-10px',
+                right: '-10px',
+                backgroundColor: 'red',
+                color: 'white',
+                borderRadius: '50%',
+                padding: '0.2em 0.6em',
+                fontSize: '0.8em',
+              }}
+            >
+              {cartCount}
+            </span>
+          )}
+        </div>
   );
 };
 

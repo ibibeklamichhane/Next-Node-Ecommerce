@@ -1,4 +1,6 @@
-'use client';
+"use client";
+
+import React, { useState } from 'react';
 import Card from "@/components/card/card";
 import CardOutline from "@/components/card/cardOutline";
 import { url } from "inspector";
@@ -23,8 +25,10 @@ interface Product {
 
 
 export default function GetProduct() {
+  const [page, setPage] = useState(1);
+  const limit = 4;
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data:products, error, isLoading } = useSWR <Product[]>("https://fakestoreapi.com/products?limit=4", fetcher,{ refreshInterval: 10000 });
+  const { data:products, error, isLoading } = useSWR <Product[]>(`https://fakestoreapi.com/products?limit=${page *limit}`, fetcher,{ refreshInterval: 10000 });
 
   if (error) {
     // Handle the error case
@@ -37,6 +41,10 @@ export default function GetProduct() {
 
   console.log("result", products);
 
+  const loadMore = () => {
+    setPage(page + 1);
+  };
+
   return (
     <>
 
@@ -48,9 +56,9 @@ export default function GetProduct() {
     />
   
 
-  <div className="container mx-auto px-4 py-8">
+  <div className="container mx-auto px-4 py-8 gap-y-4">
       <h1 className="text-3xl font-bold mb-6 capitalize"> Products</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 gap-y-12">
         {products.map((product) => (
           <Card
             key={product.id}
@@ -63,11 +71,22 @@ export default function GetProduct() {
               image: product.image,
               rating: product.rating.rate,
             }}
+            
           />
         ))}
       </div>
       <div className="mt-8 flex justify-center">
-        <CustomButton text="View all products" className="text-white px-6 py-2 bg-red-700 w-fit" />
+      {products.length < page * limit ? (
+            <CustomButton 
+              text="No more products" 
+              className="text-white px-6 py-2 bg-gray-400 w-fit cursor-not-allowed" 
+              
+            />
+          ) : (
+        <CustomButton text="View more products" className="text-white px-6 py-2 bg-red-700 w-fit"
+        onClick={loadMore}
+         />
+        )}
       </div>
     </div>
 

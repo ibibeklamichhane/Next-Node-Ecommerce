@@ -106,7 +106,7 @@ const filesData = [
   interface FileData {
     fileName: string;
     name: number;
-    quantity: number;
+    quantity: number | undefined;
     price: number;
   }
   
@@ -320,8 +320,9 @@ const filesData = [
                         Remove
                       </button>
                     </td>
-                    <td className="pl-24 py-2">${calculateSubtotal(item.price, item.quantity)}</td>
-                    </tr>
+                    <td className="pl-24 py-2">
+  ${calculateSubtotal(item.price as number, item.quantity as number)}
+</td>                    </tr>
                   ))}
                 </tbody>
               </table>
@@ -329,7 +330,9 @@ const filesData = [
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md text-black">
           <p className="text-lg font-semibold">
-            Total: ${cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
+          Total: ${cartItems.reduce((total, item) => 
+  total + (item.price as number) * (item.quantity as number), 0
+).toFixed(2)}
           </p>
         </div>
         </div>

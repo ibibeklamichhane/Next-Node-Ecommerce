@@ -1,6 +1,6 @@
 // outline functional component
 
-/*
+
 import Image from "next/image";
 import sideImage from "@/public/assets/Side Image.png"
 
@@ -24,8 +24,8 @@ return (
 
  export default login 
 
- */
-
+ 
+/*
  'use client'
 
  import React, { useState } from 'react';
@@ -103,4 +103,6 @@ const CheckoutForm: React.FC = () => {
   );
 };
 
-export default CheckoutForm;
+export default CheckoutForm; 
+
+*/

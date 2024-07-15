@@ -47,7 +47,7 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="w-4/5 text-black pl-32 mt-16 ">
+    <div className="w-4/5 text-black pl-32  ">
       <h1 className="font-semibold text-4xl w-fit">Create an account</h1>
 
       <p className="font-normal text-md mt-3"> Enter your details below</p>

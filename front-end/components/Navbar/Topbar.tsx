@@ -11,16 +11,16 @@ function Topbar() {
   return (
     <nav className="flex  text-black items-center justify-between  py-3 bg-white border-b border-gray-200 sticky">
       {/* Brand */}
-      <div className="font-bold text-2xl">Exclusive</div>
+      <Link href="/" className="font-bold text-2xl">Exclusive</Link>
 
       {/* Navigation Links */}
       <div className="flex space-x-12 pr-10 font-semibold text-lg">
   <a href="/" className="hover:underline ">
     Home
   </a>
-  <a href="contact" className="hover:underline ">
+  <Link href="contact" className="hover:underline ">
     Contact
-  </a>
+  </Link>
   <Link  href="/about" className="hover:underline ">
     About
   </Link>

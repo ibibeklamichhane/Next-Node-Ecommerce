@@ -100,6 +100,7 @@ const filesData = [
   import { useAppSelector, useAppDispatch } from "@/features/cart/hooks";
  // import { updateItemQuantity } from '@/featur';
  import { updateQuantity ,removeItem} from '@/features/cart/cartslice';
+ import TotalCart from './totalcart';
 
 
 
@@ -338,7 +339,10 @@ const filesData = [
         </div>
         <div className="flex justify-end ">
         </div>
+
+        <TotalCart/>
       </>
+
     );
   };
 

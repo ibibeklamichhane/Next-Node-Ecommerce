@@ -9,12 +9,12 @@ function login() {
 
 return (
 <>
-<div className="flex mt-24">
+<div className="flex mt-10">
 <Image
   src={sideImage}
   alt="Image Alt"
   width={600}
-  height={300}
+  height={250}
 />
   <LoginForm/>
 </div>

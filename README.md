@@ -1,10 +1,10 @@
-##Ecommerce Site made with Next.js and Node.js
+## Ecommerce Site made with Next.js and Node.js
 
-#Tech stack used
+# Tech stack used
 -Next.js
 -Node
 -Redux
 -React Query
 
-#Payment Integration 
+# Payment Integration 
 -Khalti
